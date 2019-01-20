@@ -1,5 +1,5 @@
 # Interactive App
-This repository provides a toy bokeh app for visualizing the decision surfaces of different classification models for data that is added by the user by double-clicking into the plot.
+This repository provides a toy [bokeh](http://bokeh.pydata.org/en/latest/) app for visualizing the decision surfaces of different classification models for data that is added by the user by double-clicking into the plot.
 
 # Quick Start
 Run
