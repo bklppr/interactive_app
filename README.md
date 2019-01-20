@@ -1,1 +1,22 @@
-# pyro_example
+# Interactive App
+This repository provides a toy bokeh app for visualizing the decision surfaces of different classification models for data that is added by the user by double-clicking into the plot.
+
+# Quick Start
+Run
+```
+conda env create -f environment.lock.yaml --force
+```
+to create a `conda` environment with all dependencies.
+
+The `interactive_app` folder is set up with [PyScaffold](https://pyscaffold.org/en/latest/). Run 
+```
+cd interactive_app
+python setup.py develop
+```
+to install the package. However, this is optional.
+
+Run
+```
+./run.sh
+```
+and the app appears under `http://localhost:5006`.
