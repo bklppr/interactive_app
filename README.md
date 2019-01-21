@@ -5,18 +5,21 @@ This repository provides a toy [bokeh](http://bokeh.pydata.org/en/latest/) app f
 Run
 ```
 conda env create -f environment.lock.yaml --force
+source activate interactive_app
 ```
-to create a `conda` environment with all dependencies.
-
-The `interactive_app` folder is set up with [PyScaffold](https://pyscaffold.org/en/latest/). Run 
-```
-cd interactive_app
-python setup.py develop
-```
-to install the package. However, this is optional.
+to create a `conda` environment with all dependencies and activate it.
 
 Run
 ```
 ./run.sh
 ```
 and the app appears under `http://localhost:5006`.
+
+# Develop
+The `interactive_app` folder is set up with [PyScaffold](https://pyscaffold.org/en/latest/).
+If you want to further develop it, run
+```
+cd interactive_app
+python setup.py develop
+```
+to install the package.
