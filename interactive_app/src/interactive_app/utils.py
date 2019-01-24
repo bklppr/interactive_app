@@ -1,6 +1,10 @@
 import numpy as np
 import pandas as pd
 
+class BokehObjectWrapper:
+    def __init__(self, obj):
+        self.obj = obj
+
 def create_meshgrid(xlim, ylim, step):
     """Create a meshgrid from x and y axis limits."""
     x = np.arange(xlim[0], xlim[1], step)
