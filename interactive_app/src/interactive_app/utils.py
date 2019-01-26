@@ -1,9 +1,8 @@
+#!/usr/bin/env python
+
 import numpy as np
 import pandas as pd
 
-class BokehObjectWrapper:
-    def __init__(self, obj):
-        self.obj = obj
 
 def create_meshgrid(xlim, ylim, step):
     """Create a meshgrid from x and y axis limits."""
@@ -12,6 +11,7 @@ def create_meshgrid(xlim, ylim, step):
     xm, ym = np.meshgrid(x, y)
     mg = np.concatenate((xm.reshape(-1, 1), ym.reshape(-1, 1)), axis=1)
     return mg
+
 
 def create_decision_surface(model, X, y, xlim, ylim, step):
     """Get decision surface for model over specified grid."""
