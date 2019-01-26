@@ -27,13 +27,11 @@ def callback_button_update(source, classifiers, state, surface):
     surface.data = {c: s.tolist() for c, s in df.items()}
 
 
-def callback_button_class(event, state):
-    """Callback for button to choose the class."""
-    state.current_level.pop()
-    state.current_level.append(event)
+def callback_change_current_state(event, current_state):
+    """Callback for updating current state.
 
-
-def callback_button_select_model(event, state):
-    """Callback for button to choose the class."""
-    state.current_model.pop()
-    state.current_model.append(event)
+    :param event: event to become the new current state.
+    :param current_state: list of length 1 containing the current state to be replaced by event.
+    """
+    current_state.pop()
+    current_state.append(event)

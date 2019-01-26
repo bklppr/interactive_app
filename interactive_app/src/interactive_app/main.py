@@ -55,11 +55,11 @@ button_update.on_click(lambda: callbacks.callback_button_update(source, classifi
 
 # choose class
 button_class = RadioButtonGroup(labels=['Class 0', 'Class 1'], active=0)
-button_class.on_click(lambda event: callbacks.callback_button_class(event, state))
+button_class.on_click(lambda event: callbacks.callback_change_current_state(event, state.current_level))
 
 # choose classifier
 button_model = RadioButtonGroup(labels=['Log. Reg.', 'Naive Bayes', 'SVC', 'RF'], active=0)
-button_model.on_click(lambda event: callbacks.callback_button_select_model(event, state))
+button_model.on_click(lambda event: callbacks.callback_change_current_state(event, state.current_model))
 
 # create document
 curdoc().add_root(column(p, row(button_class, button_model), row(button_update, button_reset), table))
