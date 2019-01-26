@@ -23,3 +23,8 @@ cd interactive_app
 python setup.py develop
 ```
 to install the package.
+
+To run the tests, execute
+```
+python setup.py test
+```
