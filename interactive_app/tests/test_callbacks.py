@@ -11,11 +11,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
 
-__author__ = "bklppr"
-__copyright__ = "bklppr"
-__license__ = "mit"
-
-
 @pytest.fixture
 def state():
     """Namedtuple containing variables describing the app and its current state."""
@@ -60,7 +55,7 @@ def surface(state):
 @pytest.fixture
 def classifiers():
     """List containing sklearn classifiers."""
-    cls = [LogisticRegression(solver='lbfgs'), GaussianNB(), LinearSVC(C=1.0), RandomForestClassifier(n_estimators=100)]
+    cls = [LogisticRegression(solver='lbfgs'), GaussianNB(), LinearSVC(C=1.0), RandomForestClassifier(n_estimators=1)]
     return cls
 
 
@@ -90,7 +85,7 @@ def test_callback_add_dot_on_double_tap(double_tap_event, state, empty_source):
 def test_callback_button_update(source, classifiers, state, surface):
     """Test callback for button to update the decision surface."""
     callbacks.callback_button_update(source, classifiers, state, surface)
-    xy = np.arange(state.xlim[0], state.xlim[1], state.step)
+    xy = np.arange(state.xlim[0], state.xlim[1] + state.step, state.step)
     assert surface.data['x'] == list(np.tile(xy, len(xy)))
     assert surface.data['y'] == list(np.repeat(xy, len(xy)))
     assert all([l in state.color_dict.keys() for l in surface.data['level']])
