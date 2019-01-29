@@ -4,20 +4,35 @@ from interactive_app import utils
 
 
 def callback_button_reset(source, surface):
-    """Callback for reset button."""
+    """Callback for reset button.
+
+    :param source: ColumnDataSource containing the data added by double clicks.
+    :param surface: ColumnDataSource containing the data for the decision boundaries.
+    """
     source.data = {k: [] for k in list(source.data.keys())}
     surface.data = {k: [] for k in list(surface.data.keys())}
 
 
 def callback_add_dot_on_double_tap(event, state, source):
-    """Callback for adding dot on double tap."""
+    """Callback for adding dot on double tap.
+
+    :param event: event containing coordinates of clicked point.
+    :param state: namedtuple containing the state variables of the app.
+    :param source: ColumnDataSource containing the data added by double clicks.
+    """
     coords = {'x': event.x, 'y': event.y, 'level': state.current_level[0],
               'color': state.color_dict[state.current_level[0]]}
     source.data = {k: v + [coords[k]] for k, v in source.data.items()}
 
 
 def callback_button_update(source, classifiers, state, surface):
-    """Callback for button to update the decision surface."""
+    """Callback for button to update the decision surface.
+
+    :param source: ColumnDataSource containing the data added by double clicks.
+    :param classifiers: list containing sklearn classifiers.
+    :param state: namedtuple containing the state variables of the app.
+    :param surface: ColumnDataSource containing the data for the decision boundaries.
+    """
     df = source.to_df()
     model = classifiers[state.current_model[0]]
     df = utils.create_decision_surface(model, df[['x', 'y']].values, df['level'].values, state.xlim, state.ylim,
